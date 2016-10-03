@@ -1,32 +1,26 @@
 Node React Firebase Template
 ============================
 
+TODO:
+- add more sources + links *
+- number of products next to source
+- back to top
+- price filtering
+- cart
+- popularity by clicking
+- keywords
 
-Built on https://github.com/wix/react-templates-transform-boilerplate
+future:
+- similar products
 
-Getting Started
-------------
-<pre><code>git clone https://github.com/CelenaConsortium/node-react-firebase-template
-npm install
-npm start
-</code></pre>
-
-Production
-------------
-This is when you host on heroku.
-
-<pre><code>npm run build
-</code></pre>
-
-
-## App Architecture
-
-React code starts at index.js in /src
-
-App:
-/pages
-/components
-/helpers
-
-These folders aren't necessary. This is just the way we set up the structure.
-Reusable parts are in /parts.
+stores
+- end clothing ??
+- uniqlo
+- h&m
+- zara
+- mr porter ??
+- haberdasher
+- j crew
+- forever 21
+- net a porter
+- http://www.yoox.com/us/women
