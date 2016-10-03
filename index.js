@@ -7,12 +7,12 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 
-const localhost = 8080;
+const localhost = 3000;
 app.set('port', (process.env.PORT || localhost));
 app.use(express.static('public')); // you can get files in public folder, i.e src="css/main.css"
 
-if(app.get('port') == localhost){ // local
-
+// if(app.get('port') == localhost){ // local
+if(false){
   var webpack = require('webpack');
   var config = require('./webpack.config.dev');
   var compiler = webpack(config);
@@ -27,6 +27,7 @@ if(app.get('port') == localhost){ // local
 
 }
 else{
+  console.log('here')
   app.use('/static', express.static(__dirname + '/dist'));
 }
 
