@@ -1,26 +1,27 @@
 Node React Firebase Template
-============================
+# ReduxSimpleStarter
 
-TODO:
-- add more sources + links *
-- number of products next to source
-- back to top
-- price filtering
-- cart
-- popularity by clicking
-- keywords
+Interested in learning [Redux](https://www.udemy.com/react-redux/)?
 
-future:
-- similar products
+###Getting Started###
 
-stores
-- end clothing ??
-- uniqlo
-- h&m
-- zara
-- mr porter ??
-- haberdasher
-- j crew
-- forever 21
-- net a porter
-- http://www.yoox.com/us/women
+There are two methods for getting started with this repo.
+
+####Familiar with Git?#####
+Checkout this repo, install dependencies, then start the gulp process with the following:
+
+```
+	> git clone git@github.com:StephenGrider/ReduxSimpleStarter.git
+	> cd ReduxSimpleStarter
+	> npm install
+	> npm start
+```
+
+####Not Familiar with Git?#####
+Click [here](https://github.com/StephenGrider/ReactStarter/releases) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
+
+```
+	> npm install
+	> npm start
+```
+>>>>>>> 8d814801d8bc09fca1145e95f4813bbbc4f05b00
