@@ -34,7 +34,7 @@ import Navbar from './parts/Navbar';
 ///////////////*~ React Component ~*////////////
 ////////////////////////////////////////////////
 
-// routing. only need this for root component
+// Routing
 function getCurrentPage(){
   var CurrentPage;
   switch (window.location.pathname){
@@ -63,9 +63,7 @@ class YourReactApp extends Component {
     return (
       <section>
         <Navbar/>
-        <section>
-          {Page}
-        </section>
+        {Page}
       </section>
     )
   }

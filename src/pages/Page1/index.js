@@ -17,6 +17,7 @@ const styles = {
     opacity: .4
   }
 }
+
 class VisitorRow extends Component {
   static propTypes = {
      visitor: React.PropTypes.object.isRequired,
