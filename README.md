@@ -1,32 +1,27 @@
 Node React Firebase Template
-============================
+# ReduxSimpleStarter
 
+Interested in learning [Redux](https://www.udemy.com/react-redux/)?
 
-Built on https://github.com/wix/react-templates-transform-boilerplate
+###Getting Started###
 
-Getting Started
-------------
-<pre><code>git clone https://github.com/CelenaConsortium/node-react-firebase-template
-npm install
-npm start
-</code></pre>
+There are two methods for getting started with this repo.
 
-Production
-------------
-This is when you host on heroku.
+####Familiar with Git?#####
+Checkout this repo, install dependencies, then start the gulp process with the following:
 
-<pre><code>npm run build
-</code></pre>
+```
+	> git clone git@github.com:StephenGrider/ReduxSimpleStarter.git
+	> cd ReduxSimpleStarter
+	> npm install
+	> npm start
+```
 
+####Not Familiar with Git?#####
+Click [here](https://github.com/StephenGrider/ReactStarter/releases) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
 
-## App Architecture
-
-React code starts at index.js in /src
-
-App:
-/pages
-/components
-/helpers
-
-These folders aren't necessary. This is just the way we set up the structure.
-Reusable parts are in /parts.
+```
+	> npm install
+	> npm start
+```
+>>>>>>> 8d814801d8bc09fca1145e95f4813bbbc4f05b00

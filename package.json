@@ -1,8 +1,15 @@
 {
-  "name": "node-react-firebase-template",
+  "name": "redux-simple-starter",
   "version": "1.0.0",
-  "description": "A template to help you get started",
+  "description": "Simple starter package for Redux with React and Babel support",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/StephenGrider/ReduxSimpleStarter.git"
+  },
+  "engines": {
+    "node": "4.1.1"
+  },
   "scripts": {
     "clean": "rimraf dist",
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
@@ -13,7 +20,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "axios": "^0.13.1",
     "babel-core": "^6.3.26",
+    "react-google-maps": "^4.7.1",
     "babel-eslint": "^5.0.0-beta6",
     "babel-loader": "^6.2.0",
     "babel-plugin-react-transform": "^2.0.0",
@@ -21,32 +30,59 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-react-hmre": "^1.0.0",
     "babel-preset-stage-0": "^6.5.0",
+    "chai": "^3.5.0",
+    "chai-jquery": "^2.0.0",
     "css-loader": "^0.23.1",
     "eslint": "^1.10.3",
     "eslint-plugin-react": "^3.13.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "file-loader": "^0.8.5",
+    "jquery": "^2.2.1",
+    "jsdom": "^8.1.0",
+    "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
     "react-addons-linked-state-mixin": "^0.14.5",
+    "react-addons-test-utils": "^0.14.7",
     "react-transform-catch-errors": "^1.0.1",
     "react-transform-hmr": "^1.0.0",
     "redbox-react": "^1.2.0",
     "rimraf": "^2.5.0",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
+    "react-redux": "^4.0.0",
+    "react-router": "^2.0.0-rc5",
+    "redux": "^3.0.4",
+    "redux-promise": "^0.5.3",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0"
   },
   "dependencies": {
+    "axios": "^0.13.1",
+    "babel-preset-stage-1": "^6.1.18",
     "body-parser": "^1.15.2",
     "ejs": "^2.4.2",
-    "express": "^4.13.4",
-    "firebase": "^3.2.1",
+    "express": "^4.14.0",
+    "firebase": "^3.3.0",
+    "lodash": "^3.10.1",
     "jquery": "^2.2.2",
-    "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-google-maps": "^4.7.1",
+    "react-infinite-scroller": "^0.2.11",
+    "react-redux": "^4.0.0",
+    "react-router": "^2.0.0-rc5",
+    "redux": "^3.0.4",
+    "redux-promise": "^0.5.3",
+    "webpack": "^1.12.9"
+  },
+  "bugs": {
+    "url": "https://github.com/StephenGrider/ReduxSimpleStarter/issues"
+  },
+  "homepage": "https://github.com/StephenGrider/ReduxSimpleStarter#readme",
+  "directories": {
+    "test": "test"
   }
 }

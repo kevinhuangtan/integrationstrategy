@@ -1,3 +1,14 @@
+<<<<<<< HEAD
 node_modules/
 .DS_Store
 npm-debug.log
+=======
+/node_modules
+bundle.js
+npm-debug.log
+.DS_Store
+/*.env
+# IntelliJ
+*.iml
+/.idea
+>>>>>>> 8d814801d8bc09fca1145e95f4813bbbc4f05b00

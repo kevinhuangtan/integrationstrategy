@@ -1,11 +1,8 @@
-// Root Module
-
-////////////////////////////////////////////////
-//////////////*~ Dependencies ~*////////////////
-////////////////////////////////////////////////
-
-import React, { PropTypes, Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 
 // Firebase Configuration
 // To create a new project, go to https://console.firebase.google.com/
@@ -70,11 +67,10 @@ class YourReactApp extends Component {
 }
 
 
-// Top of the Tree
-// React attaches all your React stuff - which is stored in a Virtual DOM  -
-// to #root in your HTML
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
-  <YourReactApp />,
-  document.getElementById('root')
-);
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <Router history={browserHistory} routes={routes}/>
+  </Provider>
+  , document.querySelector('.box'));
