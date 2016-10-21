@@ -1,0 +1,12 @@
+/*
+ * action types
+ */
+
+
+////////////////////////////////////////////////
+////////*~ Fetch Visitors from Firebase~* //////
+////////////////////////////////////////////////
+
+export function receiveVisitors(visitors) {
+  return { type: 'FETCH_VISITORS_SUCCESS', visitors }
+}
