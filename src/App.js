@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import reduxApp from './redux/reducers'
@@ -25,10 +24,6 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <Firebase/>
-          <div className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h2>Welcome to React</h2>
-          </div>
           <Page/>
         </div>
       </Provider>

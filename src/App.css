@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -61,15 +62,26 @@ hr{
 .hover-opacity-light:hover{
   opacity: .9;
 }
+.transition{
 
+  -webkit-transition: all 800ms ease-in-out;
+  -moz-transition: all 800ms ease-in-out;
+  -o-transition: all 800ms ease-in-out;
+  transition: all 800ms ease-in-out;
+
+  -webkit-transition-delay: 400ms; /* Safari */
+  transition-delay: 400ms;
+
+}
 .hover-opacity{
-  -webkit-transition: all 100ms ease;
-  -moz-transition: all 100ms ease;
-  -o-transition: all 100ms ease;
-  transition: all 100ms ease;
+  -webkit-transition: all 100ms ease, transform 500ms ease-in-out;
+  -moz-transition: all 100ms ease, transform 500ms ease-in-out;
+  -o-transition: all 100ms ease, transform 500ms ease-in-out;
+  transition: all 100ms ease, transform 500ms ease-in-out;
+
 }
 .hover-opacity:hover{
-  opacity: .7;
+  opacity: .9;
 }
 
 .hover-underline{
@@ -166,12 +178,7 @@ select:focus {
 
 }
 
-.transition{
-  -webkit-transition: all 100ms ease;
-  -moz-transition: all 100ms ease;
-  -o-transition: all 100ms ease;
-  transition: all 100ms ease;
-}
+
 
 
 .btn-social{

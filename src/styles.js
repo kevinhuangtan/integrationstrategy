@@ -3,6 +3,7 @@ exports.xlarge = 25;
 exports.large = 20;
 exports.medium = 14;
 exports.small = 12;
+exports.mainColor = '#4A6CE2';
 
 exports.black = 'rgb(30,30,30)';
 exports.buttonColor = "#BACFA1";
