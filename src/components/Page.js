@@ -4,7 +4,7 @@ import firebase from 'firebase';
 import Styles from '../styles';
 var MobileDetect = require('mobile-detect');
 var mobile = new MobileDetect(window.navigator.userAgent).mobile();
-import data from '../data'
+import Data from '../data'
 import tl from '../pieces/tl.svg';
 import tm from '../pieces/tm.svg';
 import tr from '../pieces/tr.svg';
@@ -14,6 +14,16 @@ import mr from '../pieces/mr.svg';
 import bl from '../pieces/bl.svg';
 import bm from '../pieces/bm.svg';
 import br from '../pieces/br.svg';
+
+import tl_w from '../pieces/tl_w.svg';
+import tm_w from '../pieces/tm_w.svg';
+import tr_w from '../pieces/tr_w.svg';
+import ml_w from '../pieces/ml_w.svg';
+import mm_w from '../pieces/mm_w.svg';
+import mr_w from '../pieces/mr_w.svg';
+import bl_w from '../pieces/bl_w.svg';
+import bm_w from '../pieces/bm_w.svg';
+import br_w from '../pieces/br_w.svg';
 
 const pieceWidth = 130;
 const cutWidth = pieceWidth/5;
@@ -31,6 +41,7 @@ const puzzleMap = {
   tl: {
     type: "iam",
     src : tl,
+    src_w: tl_w,
     value: 'faculty',
     name: 'Faculty',
     white: true,
@@ -48,6 +59,7 @@ const puzzleMap = {
   tm: {
     type: "iam",
     src : tm,
+    src_w: tm_w,
     value: 'grad_student',
     name: 'Grad Student',
     divStyle: {
@@ -64,6 +76,7 @@ const puzzleMap = {
   tr: {
     type: "iam",
     src : tr,
+    src_w: tr_w,
     value: 'undergrad',
     name: 'Undergrad',
     white: true,
@@ -83,6 +96,7 @@ const puzzleMap = {
   ml: {
     type: "iwant",
     src : ml,
+    src_w: ml_w,
     value: 'learn',
     name: 'Learn',
     divStyle: {
@@ -100,6 +114,7 @@ const puzzleMap = {
   mm: {
     type: "iwant",
     src : mm,
+    src_w: mm_w,
     value: 'get_started',
     white: true,
 
@@ -120,6 +135,7 @@ const puzzleMap = {
   mr: {
     type: "iwant",
     src : mr,
+    src_w: mr_w,
     value: 'join_a_community',
     name: 'Join a Community',
     divStyle: {
@@ -137,6 +153,7 @@ const puzzleMap = {
   bl: {
     type: "iwant",
     src : bl,
+    src_w: bl_w,
     value: 'find_funding',
     name: 'Find Funding',
     white: true,
@@ -156,6 +173,7 @@ const puzzleMap = {
   bm: {
     type: "iwant",
     src : bm,
+    src_w: bm_w,
     value: 'get_advice',
     name: 'Get Advice',
     divStyle: {
@@ -174,6 +192,7 @@ const puzzleMap = {
   br: {
     type: "iwant",
     src : br,
+    src_w: br_w,
     white: true,
 
     value: 'share_expertise',
@@ -231,20 +250,20 @@ class Piece extends React.Component {
     }
     return (
       <div
+        className="transition"
         onClick={this.handleClick}
-         className="hover-opacity"
          style={{
            ...divStyle,
           ...piece.divStyle,
           ...translate,
-          color: piece.white ? Styles.mainColor: "white"
+          color: (active ) ? "white" :  Styles.mainColor
         }}>
         <img style={{
             position: 'absolute',
-            opacity: (active && !submit) ? .7 : 1,
+            opacity: (active && !submit) ? 1 : 1,
             ...piece.style,
           }}
-          src={piece.src}/>
+          src={active ? piece.src : piece.src_w}/>
         <span style={{
             position:'absolute',
             width: 50,
@@ -283,8 +302,10 @@ export default class Page extends Component {
   }
   handleClickPiece = (piece) => {
     console.log(piece.name);
+    if(this.state.submit){
+      return
+    }
     if(piece.type == "iam"){
-
       if(this.state.activeIam == piece.name){
         this.setState({
           activeIam : ""
@@ -309,10 +330,25 @@ export default class Page extends Component {
       });
     }
   }
+  _filterLinks = (activeIam, activeIwant) => {
+    let ret = {};
+    activeIwant.map((a, i)=>{
+      ret[a] = [];
+    })
+
+    Data.data['student'].map((d, i) => {
+      if(activeIwant.indexOf(d.category)!=-1){
+        ret[d.category].push(d)
+      }
+    })
+    return ret
+  }
   render(){
     const {  } = this.props;
     const { submit, activeIam, activeIwant } = this.state;
+    console.log(activeIam, activeIwant);
 
+    let links = this._filterLinks(activeIam, activeIwant)
     return(
       <div style={{
           ...posCenter,
@@ -324,12 +360,12 @@ export default class Page extends Component {
         <h3>Resources</h3>
         <br/>
         <h4 style={{
-            display: submit ? "none" : 'block',
+            opacity: submit ? 0 : 1,
           }}>I am</h4>
         <br/>
         <h4
           style={{
-            display: submit ? "none" : 'block',
+            opacity: submit ? 0 : 1,
             ...posCenter,
             top: 2 * pieceWidth + verticalSpace + 50
           }}>and I want to</h4>
@@ -337,6 +373,7 @@ export default class Page extends Component {
             position: 'relative',
             color: Styles.mainColor,
             height: 3 * pieceWidth ,
+            zIndex: 100
           }}>
           {Object.keys(puzzleMap).map((piece, i) => {
             return(
@@ -351,7 +388,7 @@ export default class Page extends Component {
           })}
         </div>
         <div
-           className="transition"
+           className="transition-links"
            style={{
             opacity: submit ? 1 : 0,
             transform: submit ? 'translateY(0)' : 'translateY(-30px)',
@@ -359,12 +396,28 @@ export default class Page extends Component {
             color: Styles.mainColor,
             padding: 20,
             marginTop: 25,
-
+            zIndex: '-100',
+            textAlign: 'left'
           }}>
-          <p>Yale School of Management</p>
-          <p>Yale School of Management</p>
-          <p>Yale School of Management</p>
-          <p>Yale School of Management</p>
+          {Object.keys(links).map((header,i) => {
+            return (
+              <section key={i}>
+                <br/>
+                <p style={{textAlign:'center'}}>{header}</p>
+                <hr style={{width: 150, borderColor: Styles.mainColor}}/>
+                <br/>
+                {links[header].map((link,j) => {
+                  return (
+                    <p key={j}>
+                      <a href={link.href} target="_blank">
+                        {link.name}
+                      </a>
+                    </p>
+                  )
+              })}
+              </section>
+            )
+          })}
         </div>
         <div
           onClick={this.handleClickCheck}

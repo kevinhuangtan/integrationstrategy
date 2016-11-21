@@ -63,6 +63,12 @@ hr{
   opacity: .9;
 }
 .transition{
+  -webkit-transition: all 200ms ease, transform 500ms ease-in-out;
+  -moz-transition: all 200ms ease, transform 500ms ease-in-out;
+  -o-transition: all 200ms ease, transform 500ms ease-in-out;
+  transition: all 200ms ease, transform 500ms ease-in-out;
+}
+.transition-links{
 
   -webkit-transition: all 800ms ease-in-out;
   -moz-transition: all 800ms ease-in-out;
