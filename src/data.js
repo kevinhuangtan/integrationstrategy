@@ -425,63 +425,63 @@ exports.data = {
       "Help me….." : "join a club",
       "name" : "Yale Public Health Coalition",
       "ASSOCIATED ORGANIZATION" : "Yale Public Health Coalition",
-      "href" : "yalephc.com"
+      "href" : "http://yalephc.com"
     },
     {
       "category" : "Join a Community",
       "Help me….." : "join a club",
       "name" : "Design for America at Yale",
       "ASSOCIATED ORGANIZATION" : "Design for America",
-      "href" : "www.dfayale.com"
+      "href" : "http://www.dfayale.com"
     },
     {
       "category" : "Join a Community",
       "Help me….." : "join a club",
       "name" : "Yale Entrepreneurship Magazine",
       "ASSOCIATED ORGANIZATION" : "Yale Entrepreneurship Magazine",
-      "href" : "yaleentrepreneurship.com"
+      "href" : "http://yaleentrepreneurship.com"
     },
     {
       "category" : "Join a Community",
       "Help me….." : "join a club",
       "name" : "Elmseed Enterprise Fund",
       "ASSOCIATED ORGANIZATION" : "Elmseed Enterprise Fund",
-      "href" : "elmseed.org"
+      "href" : "http://elmseed.org"
     },
     {
       "category" : "Join a Community",
       "Help me….." : "join a club",
       "name" : "Social and Environmental Entrepreneurship SIG",
       "ASSOCIATED ORGANIZATION" : "Social and Environmental Entrepreneurship SIG",
-      "href" : "environment.yale.edu/sigs/esec"
+      "href" : "http://environment.yale.edu/sigs/esec"
     },
     {
       "category" : "Join a Community",
       "Help me….." : "join a club",
       "name" : "SOM Student Clubs",
       "ASSOCIATED ORGANIZATION" : "SOM",
-      "href" : "som.yale.edu/programs/mba/student-experience/clubs"
+      "href" : "http://som.yale.edu/programs/mba/student-experience/clubs"
     },
     {
       "category" : "Join a Community",
       "Help me….." : "join a club",
       "name" : "SOM Entrepreneurship Club",
       "ASSOCIATED ORGANIZATION" : "SOM",
-      "href" : "groups.som.yale.edu/entre/about/"
+      "href" : "http://groups.som.yale.edu/entre/about/"
     },
     {
       "category" : "Join a Community",
       "Help me….." : "join a club",
       "name" : "SOM Net Impact",
       "ASSOCIATED ORGANIZATION" : "SOM",
-      "href" : "groups.som.yale.edu/net/home"
+      "href" : "http://groups.som.yale.edu/net/home"
     },
     {
       "category" : "Join a Community",
       "Help me….." : "find a community",
       "name" : "Yale Student Entrepreneurship Clubs",
       "ASSOCIATED ORGANIZATION" : "YEI",
-      "href" : "http://yei.yale.edu/student-entrepreneurship-clubs-and-organizations"
+      "href" : "http://http://yei.yale.edu/student-entrepreneurship-clubs-and-organizations"
     },
     {
       "category" : "Join a Community",
@@ -852,7 +852,7 @@ exports.data = {
       "Help me….." : "go to a workshop",
       "name" : "Yale innovation Series",
       "ASSOCIATED ORGANIZATION" : "OCR, YEI",
-      "href" : "yaleinnovationseries.eventbrite.com"
+      "href" : "http://yaleinnovationseries.eventbrite.com"
     },
     {
       "category" : "",
@@ -873,70 +873,70 @@ exports.data = {
       "Help me….." : "learn about Yale's innovation centers",
       "name" : "Yale Entrepreneurial Institute",
       "ASSOCIATED ORGANIZATION" : "YEI",
-      "href" : "yei.yale.edu"
+      "href" : "http://yei.yale.edu"
     },
     {
       "category" : "Learn",
       "Help me….." : "learn about Yale's innovation centers",
       "name" : "Office of Cooperative Research",
       "ASSOCIATED ORGANIZATION" : "OCR",
-      "href" : "ocr.yale.edu"
+      "href" : "http://ocr.yale.edu"
     },
     {
       "category" : "Learn",
       "Help me….." : "learn about Yale's innovation centers",
       "name" : "Center for Engineering, Innovation and Design",
       "ASSOCIATED ORGANIZATION" : "CEID",
-      "href" : "ceid.yale.edu"
+      "href" : "http://ceid.yale.edu"
     },
     {
       "category" : "Learn",
       "Help me….." : "learn about Yale's innovation centers",
       "name" : "Center for Biomedical and Interventional Technology",
       "ASSOCIATED ORGANIZATION" : "CBIT",
-      "href" : "cbit.yale.edu"
+      "href" : "http://cbit.yale.edu"
     },
     {
       "category" : "Learn",
       "Help me….." : "learn about Yale's innovation centers",
       "name" : "Yale Center for Business and the Environment",
       "ASSOCIATED ORGANIZATION" : "CBEY",
-      "href" : "cbey.yale.edu"
+      "href" : "http://cbey.yale.edu"
     },
     {
       "category" : "Learn",
       "Help me….." : "learn about Yale's innovation centers",
       "name" : "InnovateHealth Yale",
       "ASSOCIATED ORGANIZATION" : "InnovateHealth Yale",
-      "href" : "innovatehealth.yale.edu"
+      "href" : "http://innovatehealth.yale.edu"
     },
     {
       "category" : "Learn",
       "Help me….." : "learn about Yale's innovation centers",
       "name" : "School of Management Program on Entrepreneurship",
       "ASSOCIATED ORGANIZATION" : "SOM",
-      "href" : "som.yale.edu/faculty-research/centers-initiatives/program-entrepreneurship"
+      "href" : "http://som.yale.edu/faculty-research/centers-initiatives/program-entrepreneurship"
     },
     {
       "category" : "Learn",
       "Help me….." : "learn about Yale's innovation centers",
       "name" : "Yale Center for Clinical Investigation",
       "ASSOCIATED ORGANIZATION" : "YCCI",
-      "href" : "ycci.yale.edu"
+      "href" : "http://ycci.yale.edu"
     },
     {
       "category" : "Learn",
       "Help me….." : "learn about Yale's innovation centers",
       "name" : "Yale West Campus",
       "ASSOCIATED ORGANIZATION" : "Yale West Campus",
-      "href" : "westcampus.yale.edu"
+      "href" : "http://westcampus.yale.edu"
     },
     {
       "category" : "Learn",
       "Help me….." : "learn about Yale's innovation centers",
       "name" : "Yale Library Resources for Entrepreneurship",
       "ASSOCIATED ORGANIZATION" : "Yale Library",
-      "href" : "guides.library.yale.edu/entrepreneurship"
+      "href" : "http://guides.library.yale.edu/entrepreneurship"
     },
     {
       "category" : "Learn",
@@ -999,28 +999,28 @@ exports.data = {
       "Help me….." : "Attend a conference at Yale",
       "name" : "Yale Innovation Summit",
       "ASSOCIATED ORGANIZATION" : "OCR, YEI",
-      "href" : "yalebiotechbootcamp.com"
+      "href" : "http://yalebiotechbootcamp.com"
     },
     {
       "category" : "Learn",
       "Help me….." : "Attend a conference at Yale",
       "name" : "BioHaven Entrepreneur Series",
       "ASSOCIATED ORGANIZATION" : "OCR, CURE",
-      "href" : "cureconnect.org/biohaven"
+      "href" : "http://cureconnect.org/biohaven"
     },
     {
       "category" : "Learn",
       "Help me….." : "Attend a conference at Yale",
       "name" : "Startup Yale",
       "ASSOCIATED ORGANIZATION" : "YEI, OCR, SOM, CBEY, InnovateHealth Yale, YES",
-      "href" : "entrepreneurshipacrossyale.com"
+      "href" : "http://entrepreneurshipacrossyale.com"
     },
     {
       "category" : "Learn",
       "Help me….." : "Attend a conference at Yale",
       "name" : "Yale Technology Conference",
       "ASSOCIATED ORGANIZATION" : "ITS",
-      "href" : "its.yale.edu/about/projects-and-initiatives/yale-technology-summit"
+      "href" : "http://its.yale.edu/about/projects-and-initiatives/yale-technology-summit"
     },
     {
       "category" : "Learn",
@@ -1041,21 +1041,21 @@ exports.data = {
       "Help me….." : "learn to code",
       "name" : "Hack Yale",
       "ASSOCIATED ORGANIZATION" : "Hack Yale",
-      "href" : "hackyale.com"
+      "href" : "http://hackyale.com"
     },
     {
       "category" : "Learn",
       "Help me….." : "learn to code",
       "name" : "Float Yale",
       "ASSOCIATED ORGANIZATION" : "Float Yale",
-      "href" : "floatyale.org"
+      "href" : "http://floatyale.org"
     },
     {
       "category" : "Learn",
       "Help me….." : "learn to code",
       "name" : "Lynda",
       "ASSOCIATED ORGANIZATION" : "Lynda",
-      "href" : "yale.edu/lynda"
+      "href" : "http://yale.edu/lynda"
     },
     {
       "category" : "",
@@ -1076,14 +1076,14 @@ exports.data = {
       "Help me….." : "go to a hackathon",
       "name" : "Y Hack",
       "ASSOCIATED ORGANIZATION" : "Y Hack",
-      "href" : "yhack.org"
+      "href" : "http://yhack.org"
     },
     {
       "category" : "Learn",
       "Help me….." : "go to a hackathon",
       "name" : "Yale Healthcare Hackathon",
       "ASSOCIATED ORGANIZATION" : "CBIT",
-      "href" : "yalehackhealth.com"
+      "href" : "http://yalehackhealth.com"
     },
     {
       "category" : "",
