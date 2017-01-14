@@ -25,7 +25,9 @@ import bl_w from '../pieces/bl_w.svg';
 import bm_w from '../pieces/bm_w.svg';
 import br_w from '../pieces/br_w.svg';
 
-const pieceWidth = 130;
+import check from '../pieces/check.png'
+
+const pieceWidth = 150;
 const cutWidth = pieceWidth/5;
 const offset = 50;
 const verticalSpace = 80;
@@ -333,12 +335,15 @@ export default class Page extends Component {
   _filterLinks = (activeIam, activeIwant) => {
     let ret = {};
     activeIwant.map((a, i)=>{
-      ret[a] = [];
-    })
+      ret[a] = {};
+    });
 
     Data.data['student'].map((d, i) => {
       if(activeIwant.indexOf(d.category)!=-1){
-        ret[d.category].push(d)
+        if(!ret[d.category][d.help_me]){
+          ret[d.category][d.help_me] = []
+        }
+        ret[d.category][d.help_me].push(d)
       }
     })
     return ret
@@ -346,7 +351,6 @@ export default class Page extends Component {
   render(){
     const {  } = this.props;
     const { submit, activeIam, activeIwant } = this.state;
-    console.log(activeIam, activeIwant);
 
     let links = this._filterLinks(activeIam, activeIwant)
     return(
@@ -354,7 +358,6 @@ export default class Page extends Component {
           ...posCenter,
           width: pieceWidth*3,
           color: 'white',
-          paddingBottom: 80
         }}>
         <br/><br/>
         <h3>Resources</h3>
@@ -367,7 +370,7 @@ export default class Page extends Component {
           style={{
             opacity: submit ? 0 : 1,
             ...posCenter,
-            top: 2 * pieceWidth + verticalSpace + 50
+            top: 2 * pieceWidth + verticalSpace + 30
           }}>and I want to</h4>
         <div style={{
             position: 'relative',
@@ -403,16 +406,25 @@ export default class Page extends Component {
             return (
               <section key={i}>
                 <br/>
-                <p style={{textAlign:'center'}}>{header}</p>
+                <h4 style={{textAlign:'center'}}>{header}</h4>
                 <hr style={{width: 150, borderColor: Styles.mainColor}}/>
                 <br/>
-                {links[header].map((link,j) => {
+                {Object.keys(links[header]).map((help_me,j) => {
                   return (
-                    <p key={j}>
-                      <a href={link.href} target="_blank">
-                        {link.name}
-                      </a>
-                    </p>
+                    <section key={j}>
+                      <br/>
+                      <p style={{textAlign:'center'}}>- {help_me} -</p>
+                      {links[header][help_me].map((link, k) => {
+                        return (
+                          <p key={k}>
+                            <a href={link.href} target="_blank">
+                              {link.name}
+                            </a>
+                          </p>
+                        )
+
+                      })}
+                    </section>
                   )
               })}
               </section>
@@ -434,8 +446,9 @@ export default class Page extends Component {
             cursor: 'pointer',
             display: submit ? "none" : "flex"
           }}>
-          ✔
+          <img style={{width: 25}} src={check}/>
         </div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       </div>
 
     )
