@@ -4,19 +4,7 @@ exports.large = 20;
 exports.medium = 14;
 exports.small = 12;
 exports.mainColor = '#4A6CE2';
-
-exports.black = 'rgb(30,30,30)';
-exports.buttonColor = "#BACFA1";
-exports.gray = "rgb(180,180,180)";
-exports.red = "#a23a3a";
-exports.green = "#3A9B3A";
-exports.offWhite = "#F9F9F9";
-exports.blue = "#69ACD3";
-exports.orange = "#E8652F";
-exports.primaryColor = "#4A4A4A"
-exports.secondaryColor = "#9F9F9F";
-exports.lightBlue = "#4d71e2"
-exports.purple = '#575D7E';
+exports.darkBlue = "#3752B2"
 
 
 
