@@ -15,7 +15,7 @@ import check from '../pieces/check.png'
 const pieceWidth = 140;
 const cutWidth = pieceWidth/5;
 const offset = 50;
-const verticalSpace = 80;
+const verticalSpace = 50;
 
 const posCenter = {
   margin: '0 auto',
@@ -116,6 +116,95 @@ const puzzleMap = {
   },
 }
 
+class Subsection extends Component {
+  state = {
+    expand: false
+  }
+  _rows = () => {
+    const { subheader, links, header } = this.props;
+    const { expand } = this.state;
+    if(!expand){
+      return null
+    }
+    return (
+      <div style={{textAlign:"left", width: "100%", paddingLeft: 30}}>
+        {links[header][subheader].map((link, k) => {
+          return (
+            <p key={k}>
+              <a
+                style={{
+                  cursor: "pointer",
+                  color:"white"
+                }}
+                href={link.href} target="_blank">
+                {link.name}
+              </a>
+            </p>
+          )
+        })}
+      </div>
+    )
+  }
+  render(){
+    const { subheader } = this.props;
+    return (
+      <section>
+        <p
+          onClick={()=>this.setState({
+            expand: !this.state.expand
+          })}
+          style={{cursor: "pointer"}}
+          className="hover-underline">{subheader}</p>
+        {this._rows()}
+      </section>
+    )
+  }
+}
+
+class Section extends Component {
+  state = {
+    expand: false
+  }
+  _rows = () => {
+    const{ header, links, index } = this.props;
+
+    return (
+      <div style={{
+          textAlign:"left",
+          width: 200,
+          margin: "0 auto"
+        }}>
+        {Object.keys(links[header]).map((help_me,j) => {
+          if(links[header][help_me].length == 0){return null}
+          return (
+            <Subsection
+              links={links}
+              header={header}
+              subheader={help_me}
+              key={j}/>
+          )
+        })}
+      </div>
+    )
+  }
+  render(){
+    const{ header, links, index } = this.props;
+    return (
+      <section
+        style={{
+          backgroundColor: colors[index%colors.length],
+          padding: 20,
+          marginTop: 20,
+          marginBottom: 20
+        }}>
+        <br/>
+        <h4 style={{textAlign:'center'}}>{header}</h4>
+        <hr style={{width: 150, borderColor: "white"}}/>
+        {this._rows()}
+      </section>
+    )
+  }
+}
 
 class Piece extends React.Component {
   constructor(props) {
@@ -222,6 +311,12 @@ class Piece extends React.Component {
     );
   }
 }
+
+let colors = [
+  "#EB8275",
+  "#3752B2",
+  "#FFE28C"
+]
 
 
 export default class Page extends Component {
@@ -351,9 +446,7 @@ export default class Page extends Component {
          style={{
           opacity: submit ? 1 : 0,
           transform: submit ? 'translateY(0)' : 'translateY(-30px)',
-          backgroundColor: 'white',
-          color: Styles.mainColor,
-          padding: 20,
+          color: "white",
           marginTop: 25,
           zIndex: '-100',
           textAlign: 'left',
@@ -361,30 +454,11 @@ export default class Page extends Component {
         }}>
         {Object.keys(links).map((header,i) => {
           return (
-            <section key={i}>
-              <br/>
-              <h4 style={{textAlign:'center'}}>{header}</h4>
-              <hr style={{width: 150, borderColor: Styles.mainColor}}/>
-              {Object.keys(links[header]).map((help_me,j) => {
-                if(links[header][help_me].length == 0){return null}
-                return (
-                  <section key={j}>
-                    <br/>
-                    <p style={{textAlign:'center'}}><b>{help_me}</b></p>
-                    {links[header][help_me].map((link, k) => {
-                      return (
-                        <p key={k}>
-                          <a href={link.href} target="_blank">
-                            {link.name}
-                          </a>
-                        </p>
-                      )
-
-                    })}
-                  </section>
-                )
-            })}
-            </section>
+            <Section
+              key={i}
+              index={i}
+              links={links}
+              header={header}/>
           )
         })}
       </div>
