@@ -12,9 +12,9 @@ import path_end from '../assets/path_end.png'
 
 import check from '../pieces/check.png'
 
-const pieceWidth = 140;
+const pieceWidth = 150;
 const cutWidth = pieceWidth/5;
-const offset = 50;
+const offset = 40;
 const verticalSpace = 50;
 
 const posCenter = {
@@ -121,7 +121,7 @@ class Subsection extends Component {
     expand: false
   }
   _rows = () => {
-    const { subheader, links, header } = this.props;
+    const { subheader, links, header, contentColor } = this.props;
     const { expand } = this.state;
     if(!expand){
       return null
@@ -130,16 +130,16 @@ class Subsection extends Component {
       <div style={{textAlign:"left", width: "100%", paddingLeft: 30}}>
         {links[header][subheader].map((link, k) => {
           return (
-            <p key={k}>
-              <a
-                style={{
-                  cursor: "pointer",
-                  color:"white"
-                }}
-                href={link.href} target="_blank">
-                {link.name}
-              </a>
-            </p>
+              <p key={k}>
+                <a
+                  className="hover-underline"
+                   style={{
+                    color: contentColor,
+                  }}
+                  href={link.href} target="_blank">
+                  {link.name}
+                </a>
+              </p>
           )
         })}
       </div>
@@ -147,14 +147,44 @@ class Subsection extends Component {
   }
   render(){
     const { subheader } = this.props;
-    return (
-      <section>
-        <p
+    if(this.state.expand){
+      return (
+        <section
           onClick={()=>this.setState({
             expand: !this.state.expand
           })}
-          style={{cursor: "pointer"}}
-          className="hover-underline">{subheader}</p>
+          style={{
+            border:"1px solid white",
+            borderWidth:0,
+            borderBottomWidth:1,
+            cursor: "pointer",
+            margin: 5,
+            padding: 5
+          }}>
+          <p style={{cursor: "pointer"}}>
+            {subheader}
+            <span style={{float:"right"}}></span>
+          </p>
+          {this._rows()}
+        </section>
+      )
+    }
+    return (
+      <section
+        onClick={()=>this.setState({
+          expand: !this.state.expand
+        })}
+        style={{
+          border:"1px solid white",
+          borderWidth:0,
+          borderBottomWidth:1,
+          cursor: "pointer"
+        }}
+        className="hover-expand">
+        <p style={{cursor: "pointer"}}>
+          {subheader}
+          <span style={{float:"right"}}></span>
+        </p>
         {this._rows()}
       </section>
     )
@@ -167,11 +197,12 @@ class Section extends Component {
   }
   _rows = () => {
     const{ header, links, index } = this.props;
+    let contentColor = (index%colors.length == 2) ? Styles.mainColor : "white";
 
     return (
       <div style={{
           textAlign:"left",
-          width: 200,
+          width: 300,
           margin: "0 auto"
         }}>
         {Object.keys(links[header]).map((help_me,j) => {
@@ -181,6 +212,7 @@ class Section extends Component {
               links={links}
               header={header}
               subheader={help_me}
+              contentColor={contentColor}
               key={j}/>
           )
         })}
@@ -189,17 +221,18 @@ class Section extends Component {
   }
   render(){
     const{ header, links, index } = this.props;
+    let contentColor = (index%colors.length == 2) ? Styles.mainColor : "white";
     return (
       <section
         style={{
           backgroundColor: colors[index%colors.length],
           padding: 20,
           marginTop: 20,
-          marginBottom: 20
+          marginBottom: 20,
+          color: contentColor
         }}>
         <br/>
         <h4 style={{textAlign:'center'}}>{header}</h4>
-        <hr style={{width: 150, borderColor: "white"}}/>
         {this._rows()}
       </section>
     )
@@ -450,7 +483,6 @@ export default class Page extends Component {
           marginTop: 25,
           zIndex: '-100',
           textAlign: 'left',
-
         }}>
         {Object.keys(links).map((header,i) => {
           return (
@@ -494,14 +526,22 @@ export default class Page extends Component {
     return(
       <div style={{
           ...posCenter,
-          width: pieceWidth*3,
           color: 'white',
           marginBottom: 200
         }}>
         <br/><br/>
         <h3>Resources</h3>
-        {this._pieces()}
-        {this._links()}
+        <div style={{width: pieceWidth*3, margin: "0 auto"}}>
+          {this._pieces()}
+        </div>
+        <div style={{
+            width:"70%",
+            maxWidth: 800,
+            minWidth: 400,
+            margin: "0 auto"
+          }}>
+          {this._links()}
+        </div>
         {this._greenCheck()}
 
       </div>
