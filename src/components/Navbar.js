@@ -6,6 +6,7 @@ class Tab extends Component {
     const { label, color, flex, setView, view, activeView} = this.props;
     return (
       <div
+        className="noselect"
         onClick={()=>setView(view)}
         style={{
           ...Styles.flexCol,
@@ -45,7 +46,10 @@ export default class Navbar extends Component {
       <div style={{
           ...Styles.flexRow,
           color: Styles.mainColor,
-          position: 'fixed'
+          position: 'fixed',
+          width: "100%",
+          zIndex: 100,
+          top: 0
         }}>
         <Tab
           activeView={activeView}
