@@ -84,10 +84,11 @@ hr{
   -moz-transition: all 100ms ease, transform 500ms ease-in-out;
   -o-transition: all 100ms ease, transform 500ms ease-in-out;
   transition: all 100ms ease, transform 500ms ease-in-out;
+  background-color:  rgba(255,255,255,0);
 
 }
 .hover-opacity:hover{
-  opacity: .9;
+  background-color:  rgba(255,255,255,.15);
 }
 
 .hover-underline{
@@ -101,20 +102,18 @@ hr{
 }
 
 
-.hover-expand{
-  -webkit-transition: all 300ms ease;
-  -moz-transition: all 300ms ease;
-  -o-transition: all 300ms ease;
-  transition: all 300ms ease;
-  padding: 5px;
-  margin: 5px;
-  padding-bottom: 5px;
+.hover-background{
+  -webkit-transition: all 100ms ease;
+  -moz-transition: all 100ms ease;
+  -o-transition: all 100ms ease;
+  transition: all 100ms ease;
+  box-shadow: 2px 2px 2px rgba(0,0,0,.1);
+}
+.hover-background:hover{
+  box-shadow: 4px 4px 6px rgba(0,0,0,.3);
+
 }
 
-.hover-expand:hover{
-  padding-bottom: 15px;
-  margin-bottom: 10px;
-}
 
 .hover-opacity-reverse{
   -webkit-transition: all 100ms ease;

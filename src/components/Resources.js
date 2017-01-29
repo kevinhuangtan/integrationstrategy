@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 
-import firebase from 'firebase';
 import Styles from '../styles';
 var MobileDetect = require('mobile-detect');
 var mobile = new MobileDetect(window.navigator.userAgent).mobile();
@@ -27,8 +26,8 @@ const posCenter = {
 const puzzleMap = {
   tl: {
     type: "iam",
-    value: 'faculty',
-    name: 'Faculty',
+    value: 'undergrad',
+    name: 'Undergrad',
     divStyle: {
       left: 0,
       top : 0,
@@ -46,8 +45,8 @@ const puzzleMap = {
   },
   tr: {
     type: "iam",
-    value: 'undergrad',
-    name: 'Undergrad',
+    value: 'faculty',
+    name: 'Faculty',
     divStyle: {
       left: 2 * pieceWidth ,
       top : 0,
@@ -86,8 +85,8 @@ const puzzleMap = {
   },
   bl: {
     type: "iwant",
-    value: 'find_funding',
-    name: 'Find Funding',
+    value: 'share_expertise',
+    name: 'Share Expertise',
     divStyle: {
       left: 0,
       top : 2 * pieceWidth,
@@ -106,8 +105,8 @@ const puzzleMap = {
   },
   br: {
     type: "iwant",
-    value: 'share_expertise',
-    name: 'Share Expertise',
+    value: 'find_funding',
+    name: 'Find Funding',
     divStyle: {
       left: 2 * pieceWidth,
       top : 2 * pieceWidth,
@@ -135,6 +134,7 @@ class Subsection extends Component {
                   className="hover-underline"
                    style={{
                     color: contentColor,
+                    fontSize: Styles.medium
                   }}
                   href={link.href} target="_blank">
                   {link.name}
@@ -161,10 +161,10 @@ class Subsection extends Component {
             margin: 5,
             padding: 5
           }}>
-          <p style={{cursor: "pointer"}}>
+          <h4 style={{cursor: "pointer"}}>
             {subheader}
             <span style={{float:"right"}}></span>
-          </p>
+          </h4>
           {this._rows()}
         </section>
       )
@@ -178,13 +178,14 @@ class Subsection extends Component {
           border:"1px solid white",
           borderWidth:0,
           borderBottomWidth:1,
-          cursor: "pointer"
+          cursor: "pointer",
+          padding:10
         }}
-        className="hover-expand">
-        <p style={{cursor: "pointer"}}>
+        className="hover-opacity">
+        <h4 style={{cursor: "pointer"}}>
           {subheader}
           <span style={{float:"right"}}></span>
-        </p>
+        </h4>
         {this._rows()}
       </section>
     )
@@ -228,11 +229,11 @@ class Section extends Component {
           backgroundColor: colors[index%colors.length],
           padding: 20,
           marginTop: 20,
-          marginBottom: 20,
+          marginBottom: 50,
           color: contentColor
         }}>
         <br/>
-        <h4 style={{textAlign:'center'}}>{header}</h4>
+        <h3 style={{textAlign:'center'}}>{header}</h3>
         {this._rows()}
       </section>
     )
@@ -363,12 +364,6 @@ export default class Page extends Component {
   }
 
   componentDidMount(){
-    var self = this;
-    // retrieve user's bag from previous session
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-      }
-    });
   }
   handleClickCheck = () => {
     this.setState({
@@ -508,12 +503,13 @@ export default class Page extends Component {
           height: 50,
           justifyContent: 'center',
           alignItems: 'center',
-          fontSize: 20,
+          fontSize: Styles.large,
           ...posCenter,
           top: 3 * pieceWidth + verticalSpace + 300,
           cursor: 'pointer',
           display: this.state.submit ? "none" : "flex",
-          zIndex: 200
+          zIndex: 200,
+          marginBottom: 50
         }}>
         <img style={{width: 25}} src={check}/>
       </div>
@@ -524,14 +520,16 @@ export default class Page extends Component {
     const { submit, activeIam, activeIwant } = this.state;
 
     return(
-      <div style={{
+      <section style={{
           ...posCenter,
           color: 'white',
-          marginBottom: 200
         }}>
         <br/><br/>
-        <h3>Resources</h3>
-        <div style={{width: pieceWidth*3, margin: "0 auto"}}>
+        <h2>Resources</h2>
+        <div style={{
+            width: pieceWidth*3,
+            margin: "0 auto",
+          }}>
           {this._pieces()}
         </div>
         <div style={{
@@ -544,7 +542,7 @@ export default class Page extends Component {
         </div>
         {this._greenCheck()}
 
-      </div>
+      </section>
 
     )
   }
