@@ -48,7 +48,7 @@ export default class Navbar extends Component {
           color: Styles.mainColor,
           position: 'fixed',
           width: "100%",
-          zIndex: 100,
+          zIndex: 1000,
           top: 0
         }}>
         <Tab
