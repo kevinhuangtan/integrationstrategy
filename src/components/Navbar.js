@@ -6,7 +6,7 @@ class Tab extends Component {
     const { label, color, flex, setView, view, activeView} = this.props;
     return (
       <div
-        className="noselect"
+        className="noselect hover-background"
         onClick={()=>setView(view)}
         style={{
           ...Styles.flexCol,
@@ -21,7 +21,8 @@ class Tab extends Component {
           }}>
           <span style={{
               fontWeight: activeView == view ? "bold" : "normal",
-              margin:20
+              margin:20,
+              fontSize: 18
             }}>{label}</span>
         </div>
         <div style={{

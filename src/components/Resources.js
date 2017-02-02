@@ -122,7 +122,7 @@ class Subsection extends Component {
   _rows = () => {
     const { subheader, links, header, contentColor } = this.props;
     const { expand } = this.state;
-    if(!expand){
+    if(!this.state.expand && ! this.props.expand){
       return null
     }
     return (
@@ -146,19 +146,19 @@ class Subsection extends Component {
     )
   }
   render(){
-    const { subheader } = this.props;
-    if(this.state.expand){
+    const { subheader, contentColor } = this.props;
+    // if(this.state.expand ){
       return (
         <section
           onClick={()=>this.setState({
             expand: !this.state.expand
           })}
+          className={this.state.expand ? "" : "hover-opacity"}
           style={{
-            border:"1px solid white",
+            border:`1px solid ${contentColor}`,
             borderWidth:0,
             borderBottomWidth:1,
             cursor: "pointer",
-            margin: 5,
             padding: 5
           }}>
           <h4 style={{cursor: "pointer"}}>
@@ -168,14 +168,14 @@ class Subsection extends Component {
           {this._rows()}
         </section>
       )
-    }
+    // }
     return (
       <section
         onClick={()=>this.setState({
           expand: !this.state.expand
         })}
         style={{
-          border:"1px solid white",
+          border:`1px solid ${contentColor}`,
           borderWidth:0,
           borderBottomWidth:1,
           cursor: "pointer",
@@ -203,9 +203,25 @@ class Section extends Component {
     return (
       <div style={{
           textAlign:"left",
-          width: 300,
+          width: 400,
           margin: "0 auto"
         }}>
+        <section
+          onClick={()=>this.setState({
+            expand: !this.state.expand
+          })}
+          className="hover-opacity"
+          style={{
+            border:`1px solid ${contentColor}`,
+            borderWidth:0,
+            borderBottomWidth:1,
+            cursor: "pointer",
+            padding: 5
+          }}>
+          <h4 style={{cursor: "pointer"}}>
+            show all
+          </h4>
+        </section>
         {Object.keys(links[header]).map((help_me,j) => {
           if(links[header][help_me].length == 0){return null}
           return (
@@ -214,6 +230,7 @@ class Section extends Component {
               header={header}
               subheader={help_me}
               contentColor={contentColor}
+              expand={this.state.expand}
               key={j}/>
           )
         })}
@@ -228,12 +245,22 @@ class Section extends Component {
         style={{
           backgroundColor: colors[index%colors.length],
           padding: 20,
+          paddingBottom: 50,
           marginTop: 20,
           marginBottom: 50,
           color: contentColor
         }}>
         <br/>
-        <h3 style={{textAlign:'center'}}>{header}</h3>
+        <h3
+          onClick={()=>{
+            this.setState({
+              expand:!this.state.expand
+            })
+          }}
+          style={{
+            textAlign:'center',
+            cursor:'pointer'
+          }}>{header}</h3>
         {this._rows()}
       </section>
     )
@@ -322,7 +349,7 @@ class Piece extends React.Component {
 
     return (
       <div
-        className="transition"
+        className="hover-piece"
         onClick={this.handleClick}
          style={{
            position: 'absolute',
@@ -364,6 +391,13 @@ export default class Page extends Component {
   }
 
   componentDidMount(){
+  }
+  reset = () => {
+    this.setState({
+      submit : false, // user submitted form
+      activeIam: "",
+      activeIwant: []
+    });
   }
   handleClickCheck = () => {
     this.setState({
@@ -472,7 +506,8 @@ export default class Page extends Component {
       <div
          className="transition-links"
          style={{
-          opacity: submit ? 1 : 0,
+          display: submit ? "block" : "none",
+          // opacity: submit ? 1 : 0,
           transform: submit ? 'translateY(0)' : 'translateY(-30px)',
           color: "white",
           marginTop: 25,
@@ -488,6 +523,13 @@ export default class Page extends Component {
               header={header}/>
           )
         })}
+        <h3 style={{
+            textAlign:'center',
+            marginBottom: 80,
+            cursor:'pointer'
+          }}
+          onClick={this.reset}
+          className="hover-underline">refresh</h3>
       </div>
 
     )
@@ -495,6 +537,7 @@ export default class Page extends Component {
   _greenCheck = () => {
     return (
       <div
+        className="hover-background"
         onClick={this.handleClickCheck}
         style={{
           backgroundColor: '#75EBBB',

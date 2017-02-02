@@ -4,28 +4,20 @@
   padding-top: 50px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    height: 300px;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-
 body{
   font-size: 14px;
   background-color: rgb(254,254,254);
@@ -102,6 +94,10 @@ hr{
   text-decoration: underline;
 }
 
+.background {
+  box-shadow: 2px 2px 2px rgba(0,0,0,.1);
+
+}
 
 .hover-background{
   -webkit-transition: all 100ms ease;
@@ -114,6 +110,19 @@ hr{
   box-shadow: 4px 4px 6px rgba(0,0,0,.3);
 
 }
+
+.hover-piece{
+  -webkit-transition: box-shadow 100ms ease, background-color 200ms ease, transform 600ms ease-in-out, top 600ms ease-in-out, left 600ms ease-in-out;
+  -moz-transition: box-shadow 100ms ease, background-color 200ms ease, transform 600ms ease-in-out, top 600ms ease-in-out, left 600ms ease-in-out;
+  -o-transition: box-shadow 100ms ease, background-color 200ms ease, transform 600ms ease-in-out, top 600ms ease-in-out, left 600ms ease-in-out;
+  transition: box-shadow 100ms ease, background-color 200ms ease, transform 600ms ease-in-out, top 600ms ease-in-out, left 600ms ease-in-out;
+  box-shadow: 2px 2px 2px rgba(0,0,0,.1);
+}
+.hover-piece:hover{
+  box-shadow: 4px 4px 6px rgba(0,0,0,.3);
+}
+
+
 
 
 .hover-opacity-reverse{
