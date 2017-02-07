@@ -3,7 +3,7 @@ exports.xlarge = 25;
 exports.large = 20;
 exports.medium = 16;
 exports.small = 12;
-exports.mainColor = '#4A6CE2';
+exports.mainColor = '#10529D';
 exports.darkBlue = "#3752B2"
 
 

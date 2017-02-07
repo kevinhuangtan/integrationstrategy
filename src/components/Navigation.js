@@ -1,9 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 
-import Resources from '../components/Resources';
 import HomeView from '../containers/HomeView';
 import Navbar from '../containers/Navbar';
-import About from '../components/About';
 
 export default class Home extends Component {
   state = {
@@ -19,12 +17,6 @@ export default class Home extends Component {
     switch (view) {
       case "HOME":
         Page = <HomeView/>
-        break
-      case "ABOUT":
-        Page = <About/>
-        break
-      case "RESOURCES":
-        Page = <Resources/>
         break
 
     }

@@ -6,14 +6,12 @@ class Tab extends Component {
     const { label, color, flex, setView, view, activeView} = this.props;
     return (
       <div
-        className="noselect hover-background"
         onClick={()=>setView(view)}
         style={{
           ...Styles.flexCol,
           backgroundColor:'white',
           flex:flex,
           cursor:'pointer',
-          ...this.props.style
         }}>
         <div style={{
             ...Styles.flexCol,
@@ -25,11 +23,7 @@ class Tab extends Component {
               fontSize: 18
             }}>{label}</span>
         </div>
-        <div style={{
-            height:10,
-            width:"100%",
-            backgroundColor:color
-          }}></div>
+
       </div>
     )
   }
@@ -46,7 +40,6 @@ export default class Navbar extends Component {
     return(
       <div style={{
           ...Styles.flexRow,
-          color: Styles.mainColor,
           position: 'fixed',
           width: "100%",
           zIndex: 1000,
@@ -56,24 +49,27 @@ export default class Navbar extends Component {
           activeView={activeView}
           setView={setView}
           view="HOME"
-          style={{alignItems : 'flex-start'}}
-          label="Entrepreneurship Across Yale"
-          flex={5}
-          color="#FFE28C"/>
+          label="Private Equity"/>
         <Tab
           activeView={activeView}
           setView={setView}
           view="ABOUT"
-          label="About"
-          flex={1}
-          color="#A075EB"/>
+          label="Energy"/>
         <Tab
           activeView={activeView}
           setView={setView}
           view="RESOURCES"
-          label="Resources"
-          flex={1} 
-          color="#75C2EB"/>
+          label="Environment & Impact" />
+        <Tab
+          activeView={activeView}
+          setView={setView}
+          view="RESOURCES"
+          label="Client & Industry Experience" />
+        <Tab
+          activeView={activeView}
+          setView={setView}
+          view="RESOURCES"
+          label="About Us" />
       </div>
 
     )
