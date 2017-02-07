@@ -4,6 +4,7 @@ exports.large = 20;
 exports.medium = 16;
 exports.small = 12;
 exports.mainColor = '#10529D';
+exports.secondaryColor = "#0066cc"
 exports.darkBlue = "#3752B2"
 
 

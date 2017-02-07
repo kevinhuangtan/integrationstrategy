@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import Styles from '../styles';
+import logo from '../assets/logo.png'
 
 class Tab extends Component {
   render(){
@@ -15,12 +16,12 @@ class Tab extends Component {
         }}>
         <div style={{
             ...Styles.flexCol,
-            height: 50
+            // height: 50
           }}>
           <span style={{
-              fontWeight: activeView == view ? "bold" : "normal",
+              color: activeView == view ? Styles.secondaryColor : "auto",
               margin:20,
-              fontSize: 18
+              fontSize: 14
             }}>{label}</span>
         </div>
 
@@ -40,11 +41,17 @@ export default class Navbar extends Component {
     return(
       <div style={{
           ...Styles.flexRow,
-          position: 'fixed',
-          width: "100%",
-          zIndex: 1000,
-          top: 0
+          width: 1000,
+          margin: '0 auto',
+          borderWidth: 0,
+          borderBottomWidth: 1,
+          borderStyle: 'solid',
+          borderColor: 'gray'
         }}>
+        <img style={{
+            width:200,
+            margin: 20
+          }} src={logo}/>
         <Tab
           activeView={activeView}
           setView={setView}
